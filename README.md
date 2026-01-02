@@ -23,11 +23,21 @@ cd freelancer-sdk-docker-demo
 
 ### 2. Configure environment
 
-Under Ubuntu, to install python-env use
+Under Ubuntu:
+
+- to install python-env use
 
 ```bash
 sudo apt install python3-dotenv
+```
+
+- to find your internal IP use:
+  
 ```bash
+hostname -I
+```
+
+-to build the environment file:
 
 ```bash
 cp .env.example .env
