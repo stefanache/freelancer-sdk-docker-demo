@@ -77,8 +77,15 @@ To test without affecting real projects, use Freelancer Sandbox:
 
 ```bash
 # In .env file:
+#
+# - in sandbox for testing:
 FREELANCER_BASE_URL=https://www.freelancer-sandbox.com
 FREELANCER_ACCOUNTS_URL=https://accounts.freelancer-sandbox.com
+#
+# - in production for life:
+# In .env file:
+FREELANCER_BASE_URL=https://www.freelancer.com
+FREELANCER_ACCOUNTS_URL=https://accounts.freelancer.com
 ```
 
 ## API Endpoints
