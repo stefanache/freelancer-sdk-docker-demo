@@ -88,7 +88,8 @@ The application will be available at: http://127.0.0.1:5000
 
 ## Using Sandbox (Testing)
 
-To test without affecting real projects, use Freelancer Sandbox:
+To test without affecting real projects, use Freelancer Sandbox.
+For life in real-projects, use Freelancer Production.
 
 ```bash
 # In .env file:
