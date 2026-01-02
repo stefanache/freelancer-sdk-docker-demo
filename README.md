@@ -17,7 +17,7 @@ A unofficial dockerized version of the Freelancer.com SDK demo web application, 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/freelancer-sdk-docker-demo.git
+git clone https://github.com/stefanache/freelancer-sdk-docker-demo.git
 cd freelancer-sdk-docker-demo
 ```
 
