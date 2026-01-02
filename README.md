@@ -1,6 +1,6 @@
 # Freelancer SDK Docker Demo
 
-A dockerized version of the Freelancer.com SDK demo web application, combining:
+A unofficial dockerized version of the Freelancer.com SDK demo web application, combining:
 - [freelancer-sdk-python demo_web_application](https://github.com/freelancer/freelancer-sdk-python/tree/master/examples/demo_web_application)
 - [esapyi Docker structure](https://github.com/freelancer/esapyi)
 
