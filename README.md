@@ -37,7 +37,7 @@ sudo apt install python3-dotenv
 hostname -I
 ```
 
--to build the environment file:
+- to build the environment file:
 
 ```bash
 cp .env.example .env
