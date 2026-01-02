@@ -28,7 +28,7 @@ cp .env.example .env
 ```
 
 Edit `.env` with your Freelancer API credentials:
-- Get credentials from: https://www.freelancer.com/users/settings/api-credentials
+- Get [credentials](https://accounts.freelancer.com/) from: https://www.freelancer.com/users/settings/api-credentials
 
 ### 3. Start the application
 
