@@ -23,12 +23,21 @@ cd freelancer-sdk-docker-demo
 
 ### 2. Configure environment
 
+Under Ubuntu, to install python-env use
+
+```bash
+sudo apt install python3-dotenv
+```bash
+
 ```bash
 cp .env.example .env
+nano .env
 ```
 
 Edit `.env` with your Freelancer API credentials:
 - Get [credentials](https://accounts.freelancer.com/) from: https://www.freelancer.com/users/settings/api-credentials
+
+Save with **^O Enter** and exit from nano editor with **^X**
 
 ### 3. Start the application
 
