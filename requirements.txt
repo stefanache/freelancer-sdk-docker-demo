@@ -1,0 +1,19 @@
+# Freelancer SDK Demo - Dependencies
+
+# Web framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Database
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.21
+psycopg2-binary==2.9.9
+
+# HTTP client
+requests==2.31.0
+
+# Freelancer SDK
+freelancersdk
+
+# Production server
+gunicorn==21.2.0

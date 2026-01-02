@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: freelancer-demo-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: freelancer_demo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Flask Application (Development)
+  app:
+    build:
+      context: .
+      target: base
+    container_name: freelancer-demo-app
+    environment:
+      - FLASK_DEBUG=true
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/freelancer_demo
+      - FREELANCER_BASE_URL=${FREELANCER_BASE_URL:-https://www.freelancer.com}
+      - FREELANCER_ACCOUNTS_URL=${FREELANCER_ACCOUNTS_URL:-https://accounts.freelancer.com}
+      - FREELANCER_CLIENT_ID=${FREELANCER_CLIENT_ID}
+      - FREELANCER_CLIENT_SECRET=${FREELANCER_CLIENT_SECRET}
+      - REDIRECT_URI=${REDIRECT_URI:-http://127.0.0.1:5000/auth_redirect}
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    command: python app.py
+
+  # Flask Application (Production)
+  app-prod:
+    build:
+      context: .
+      target: production
+    container_name: freelancer-demo-app-prod
+    environment:
+      - FLASK_DEBUG=false
+      - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/freelancer_demo
+      - FREELANCER_BASE_URL=${FREELANCER_BASE_URL:-https://www.freelancer.com}
+      - FREELANCER_ACCOUNTS_URL=${FREELANCER_ACCOUNTS_URL:-https://accounts.freelancer.com}
+      - FREELANCER_CLIENT_ID=${FREELANCER_CLIENT_ID}
+      - FREELANCER_CLIENT_SECRET=${FREELANCER_CLIENT_SECRET}
+      - REDIRECT_URI=${REDIRECT_URI}
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
