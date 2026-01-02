@@ -58,44 +58,44 @@ check_env() {
 dev() {
     log_info "Starting development environment..."
     check_env
-    docker-compose up --build
+    docker compose up --build
 }
 
 # Start production environment
 prod() {
     log_info "Starting production environment..."
     check_env
-    docker-compose --profile production up --build app-prod db
+    docker compose --profile production up --build app-prod db
 }
 
 # Start only database
 db() {
     log_info "Starting database..."
-    docker-compose up -d db
+    docker compose up -d db
     log_success "Database started on port 5432"
 }
 
 # Run tests
 test() {
     log_info "Running tests..."
-    docker-compose run --rm app python -m pytest tests/ -v
+    docker compose run --rm app python -m pytest tests/ -v
 }
 
 # Open shell in app container
 shell() {
     log_info "Opening shell in app container..."
-    docker-compose run --rm app /bin/bash
+    docker compose run --rm app /bin/bash
 }
 
 # View logs
 logs() {
-    docker-compose logs -f
+    docker compose logs -f
 }
 
 # Stop all containers
 stop() {
     log_info "Stopping all containers..."
-    docker-compose down
+    docker compose down
     log_success "All containers stopped"
 }
 
@@ -106,7 +106,7 @@ clean() {
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         log_info "Cleaning up..."
-        docker-compose down -v --rmi local
+        docker compose down -v --rmi local
         log_success "Cleanup complete"
     else
         log_info "Cleanup cancelled"
