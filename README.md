@@ -37,6 +37,11 @@ sudo apt install python3-dotenv
 hostname -I
 ```
 
+- to find(cURL-based) my external IP use:
+```bash
+curl ifconfig.me
+```
+
 - to build the environment file:
 
 ```bash
