@@ -159,6 +159,8 @@ This will:
 4. Set the redirect URI to match your `REDIRECT_URI` environment variable
 5. Copy Client ID and Client Secret to `.env`
 
+For more details consult the Freelancer-API/SDK [developer's docs](https://developers.freelancer.com/docs).
+
 ## License
 
 MIT License
